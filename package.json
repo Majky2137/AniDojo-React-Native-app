@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "react-native-ratings": "^8.1.0",
+    "react-native-star-rating-widget": "^1.2.0",
+    "react-native-vector-icons": "^9.1.0",
+    "react-native-webview": "^11.18.2",
+    "react-native-youtube-iframe": "^2.2.2",
+    "react-show-more-text": "^1.5.2",
+    "yarn": "^1.22.18"
+  }
+}
