@@ -35,7 +35,6 @@ const RatingButton = () => {
     },
 });
 
-
 export {LikeButton, RatingButton};
 
 

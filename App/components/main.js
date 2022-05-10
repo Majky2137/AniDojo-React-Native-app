@@ -3,6 +3,10 @@ import {StyleSheet, Text, Button ,Alert, View, TouchableOpacity,TextInput, Scrol
 import Icon from 'react-native-vector-icons/Ionicons';
 import {LikeButton, RatingButton} from './Buttons.js';
 import Video from './Video.js';
+import TabViewExample from './Tabs.js';
+
+
+
 
 
 
@@ -12,17 +16,19 @@ const Main = (items) => {
         
         <View style={styles.main}>
             <View style={styles.heartbox}>
-                <LikeButton style={styles.Like}/>
+                <LikeButton onPress={() => navigation.navigate('Sub')} style={styles.Like}/>
             </View>
         <View style={styles.wrapper}>
             <View style={styles.descwrapper}>
                     <Text style={styles.title}>{items.title}</Text>
                     <ScrollView nestedScrollEnabled={true}>
                     <Text style={styles.info}>{items.description}</Text>
-                    </ScrollView>
-            </View> 
+                    </ScrollView>   
+            </View>  
         </View>
-            <Video episode="Episode 1 : Better later than never"/> 
+        <TabViewExample/>
+       
+ 
         </View>    
     )
 };
@@ -60,14 +66,15 @@ const styles= StyleSheet.create({
     },
  
     descwrapper: {
-        maxHeight:150,
+        maxHeight:200,
         width:'100%',
         flexDirection:'column',
         alignItems:'baseline',
         borderRadius:10,
         position:'relative',
-        marginBottom:20, 
+        
     },
+  
 
     title: {
         fontSize:24,
