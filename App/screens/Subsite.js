@@ -1,4 +1,4 @@
-import Main from '../components/main'
+import Main from '../components/main';
 import { ScrollView, StyleSheet, Text, Button ,Alert, View, Image,SafeAreaView, ImageBackground,TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 
@@ -9,12 +9,11 @@ const image = { uri: "https://i.ibb.co/chjCVxV/KIMNYA.jpg" };
 
 export default function Subsite({navigation})  {
   return (
-    <SafeAreaView>
-    <ScrollView>
-    <View style={styles.wrapper}>
-        <View style={styles.cont}>
+    <SafeAreaView style={styles.wrapper}>
+    <ScrollView style={styles.cont}>
+        <View >
           <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-          <TouchableOpacity style={{top:30, padding:15,position:'absolute',}} onPress={() => navigation.navigate('HomeScreen')}>
+          <TouchableOpacity style={{top:30, padding:15,position:'absolute',}} onPress={() => navigation.goBack('HomeScreen')}>
                   <Icon style={{ fontSize: 30,color:'white'}} name={"chevron-thin-left"} />
               </TouchableOpacity>
           <View style={styles.tit}>
@@ -37,7 +36,7 @@ export default function Subsite({navigation})  {
           </Main>  
         </View> 
         
-    </View>
+    
   </ScrollView>
   
   </SafeAreaView>    
@@ -53,13 +52,15 @@ const styles = StyleSheet.create({
     flex: 1,
     zIndex:-1,
     position:'relative',
-    width:'100%'
+    width:'100%',
+    
   },
   wrapper: {
     flex: 1,
     backgroundColor:'white',
     height:'auto',
     zIndex:-1,
+    
   },
 
   image: {
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
     textAlign:'left',
     fontWeight:'bold',
     marginBottom:0,
-    color:'#ffbb93',
+    color:'orange',
     textShadowColor: '#000', textShadowOffset: { width: 0.2, height: 0.2 }, textShadowRadius: 0.2,
   },
 
@@ -109,6 +110,7 @@ const styles = StyleSheet.create({
   paddingHorizontal:20,
   position:'relative',
   textAlign:'justify',
+  
 },
 
 });

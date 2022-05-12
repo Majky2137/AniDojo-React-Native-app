@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView, StyleSheet, Text, Button ,Alert, View, Image, ImageBackground,TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -7,6 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Subsite from './screens/Subsite';
 import HomeScreen from './screens/HomeScreen'
+import CatSlider from './components/CategorieSlider';
+import BannerSlider from './components/BannerSlider';
 
 
 const Stack = createNativeStackNavigator();
