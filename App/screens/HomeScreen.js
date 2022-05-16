@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React, {Component} from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ScrollView, StyleSheet, Text, Button ,Alert, View, Image, ImageBackground,TouchableOpacity, TextInput } from 'react-native';
+import { ScrollView, StyleSheet, Text, Button ,Alert, View, Image, ImageBackground,Pressable,TouchableOpacity,FlatList, TextInput } from 'react-native';
 import Carousel from 'react-native-snap-carousel'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useFonts } from 'expo-font';
@@ -9,8 +9,7 @@ import { SecondSliderData } from '../model/data';
 import BannerSlider from '../components/BannerSlider';
 import CatSlider from '../components/CategorieSlider';
 import { windowWidth, windowHeight, windowWidth2 } from '../utils/Dimensions';
-import {LogBox} from "react-native";
-import PropTypes from 'prop-types';
+
 
 
 
@@ -21,11 +20,17 @@ import PropTypes from 'prop-types';
 
 export default function HomeScreen({navigation}) {
 
-  const renderBanner = ({item,index}) => {
-    return <BannerSlider data={item} /> 
+  const _renderBanner = ({item,index}) => {
+    
+    return (
+      <TouchableOpacity onPress={()=>navigation.navigate('Subsite', {item: item})}>
+    <BannerSlider data={item} />
+    </TouchableOpacity>
+    
+    ) 
   };
 
-  const renderCategorie = ({item,index}) => {
+  const _renderCategorie = ({item,index}) => {
     return <CatSlider data={item} />
   };
 
@@ -44,71 +49,73 @@ export default function HomeScreen({navigation}) {
   }
 
     return (
-    <SafeAreaView style={{flex:1, backgroundColor:'#fff'}}>
+    <SafeAreaView style={{flex:1, backgroundColor:'#f8f9fa'}}>
         <ScrollView style={{padding:20}}>
           <View style={styles.user_cont}>
-            <Text style={{fontFamily:'LatoBL',fontSize:18,top:6, opacity:0.7}}>Hello User!</Text>
+            
+            <Text style={{fontFamily:'LatoBL',fontSize:18,top:10, opacity:0.7,}}>Hello User!</Text>
               <ImageBackground 
               source={require('../assets/images/user-prof-pic2.jpg')} 
               style={styles.image}  
-              imageStyle={{borderRadius:30,}}
+              imageStyle={{borderRadius:10,}}
               />
               
           </View>
 
           <View style={styles.search_container}>
-            <Icon style={{marginRight:5,top:3,}} name="search" size={20} color="#C6C6C6" />
-            <TextInput placeholder='Search' style={{width:'100%'}}/>
+            <Icon style={{marginRight:5,top:3,opacity:0.4,fontFamily:'RobotoM'}} name="search" size={20} color="#64b5f6" />
+            <TextInput placeholder='Search' style={{width:'100%',color:'#64b5f6',fontFamily:'RobotoM'}}/>
           </View>
+          
 
           <View style={{
             marginVertical:20,
             flexDirection:'row',
             justifyContent:'space-between',
             }}>
-            <Text style={{fontFamily:'LatoBL',fontSize:18, opacity:0.7, }}>Upcoming Series</Text>
+            <Text style={{fontFamily:'RobotoM',fontSize:18, opacity:0.7, }}>Popular series</Text>
             <TouchableOpacity >
-              <Text style={{color:'#0aada8'}}>See all</Text>
+              <Text style={{color:'#64b5f6',fontFamily:'RobotoM'}}>See all</Text>
             </TouchableOpacity>
           </View>
-          <Carousel
-          layout='default'
-          data={FrSliderData}
-          renderItem={renderBanner}
-          sliderWidth={windowWidth}
-          itemWidth={350+40}
-          loop={true}
-          autoplay={true}
-          autoplayDelay={3000}
-          autoplayInterval={7000}
-          enableMomentum={false}
-          lockScrollWhileSnapping={true}
-          inactiveSlideOpacity={0.4}
-          />
+          
+        <View style={styles.Wrapper}>
+          <View style={styles.ItemsWrapper}>
+            <FlatList
+              data={FrSliderData}
+              renderItem={_renderBanner}
+              keyExtractor={(item) => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              loop={true}
+              autoscroll={true}
+            />
+          </View>
+        </View>
 <View style={{
             marginVertical:20,
             flexDirection:'row',
             justifyContent:'space-between',
             }}>
-            <Text style={{fontFamily:'LatoBL',fontSize:18, opacity:0.7, }}>Categories</Text>
+            <Text style={{fontFamily:'RobotoM',fontSize:18, opacity:0.7, }}>Categories</Text>
             <TouchableOpacity>
-              <Text style={{color:'#0aada8'}}>See all</Text>
+              <Text style={{color:'#64b5f6',fontFamily:'RobotoM'}}>See all</Text>
             </TouchableOpacity>
           </View>
-          <Carousel 
-          layout='default'
-          data={SecondSliderData}
-          renderItem={renderCategorie}
-          sliderWidth={windowWidth2}
-          itemWidth={165-20}
-          lockScrollWhileSnapping={true}
-          inactiveSlideOpacity={1}
-          inactiveSlideScale={1}
-          activeSlideAlignment={'start'}
-          />
-          <TouchableOpacity onPress={() => navigation.navigate('Subsite')}>
-                 <Text> See the subsite design <Icon style={{ fontSize: 50, }} name={"arrow-forward-circle-outline"} /></Text>
-              </TouchableOpacity>
+          <View style={styles.Wrapper}>
+          <View style={styles.ItemsWrapper}>
+            <FlatList
+              data={SecondSliderData}
+              renderItem={_renderCategorie}
+              keyExtractor={(item) => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              loop={true}
+              autoscroll={true}
+            />
+          </View>
+        </View>
+          
          
         </ScrollView>
     </SafeAreaView>
@@ -126,16 +133,28 @@ user_cont: {
 
 search_container:{
     flexDirection:'row',
-    borderWidth:0.3,
+    justifyContent:'space-between',
+    borderWidth:0.2,
     borderColor:'#C6C6C6',
-    borderRadius:8,
+    borderRadius:15,
     paddingHorizontal:10,
     paddingVertical:8,
+    marginVertical:5,
     
 },
 
   image: {
-    width:35,
-    height:35,
+    width:45,
+    height:45,
+  },
+  
+
+  rWrapper: {
+    marginTop: 20,
+  },
+  
+  ItemsWrapper: {
+    paddingVertical: 20,
   },
 });
+

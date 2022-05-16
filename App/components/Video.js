@@ -4,10 +4,12 @@ import YoutubePlayer from "react-native-youtube-iframe";
 import {StyleSheet, Text, Button ,Alert, View, TouchableOpacity, } from 'react-native';
 import {TextInput, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {item} from '../screens/Subsite'
 
 
 
-const Video = (vidinfo) => {
+const Video = () => {
+  
     const [playing, setPlaying] = useState(false);
 
   const onStateChange = useCallback((state) => {
@@ -26,7 +28,7 @@ const Video = (vidinfo) => {
                     width={'100%'}
                     borderRadius={'20'}
                     play={playing}
-                    videoId={vidinfo.id}/> 
+                    videoId={'VQGCKyvzIM4'}/> 
         )
       };
 

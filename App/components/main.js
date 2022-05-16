@@ -4,6 +4,7 @@ import {StyleSheet, Text, Button ,Alert, View, TouchableOpacity,TextInput, Scrol
 import {LikeButton, RatingButton} from './Buttons.js';
 import Video from './Video.js';
 import TabViewExample from './Tabs.js';
+import FrSliderData from '../model/data'
 
 
 
@@ -16,7 +17,7 @@ const Main = (items) => {
         
         <View style={styles.main}>
             <View style={styles.heartbox}>
-                <LikeButton onPress={() => navigation.navigate('Sub')} style={styles.Like}/>
+                <LikeButton/>
             </View>
         <View style={styles.wrapper}>
             <View style={styles.descwrapper}>
@@ -27,8 +28,6 @@ const Main = (items) => {
             </View>  
         </View>
         <TabViewExample/>
-       
- 
         </View>    
     )
 };
@@ -41,10 +40,10 @@ const styles= StyleSheet.create({
     main: {
         borderRadius:35,
         flexDirection:'column',
-        backgroundColor:'#FFF',
+        backgroundColor:'#f8f9fa',
         height:'100%',
         position:'relative',
-        top:'-4.5%',
+        top:'-2.5%',
         width:'100%',
         left:0,
         opacity:1,
@@ -109,7 +108,7 @@ const styles= StyleSheet.create({
         left:"75%",
         height:70,
         backgroundColor:'#FFF',
-        top:'-3.5%',
+        top:'-2.5%',
         borderRadius:50,
         shadowColor: "#000",
         shadowOffset: {

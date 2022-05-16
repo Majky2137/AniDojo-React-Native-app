@@ -9,7 +9,8 @@ import Constants from 'expo-constants';
 
 
 const FirstRoute = () => (
-  <Video style={[styles.scene, { backgroundColor: '#673ab7' }]} id="VQGCKyvzIM4" episode="Preview"/> 
+  
+  <Video style={[styles.scene, { backgroundColor: '#673ab7' }]} episode= "Preview"/> 
 );
 
 const SecondRoute = () => (

@@ -11,6 +11,7 @@ import CatSlider from './components/CategorieSlider';
 import BannerSlider from './components/BannerSlider';
 
 
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -44,8 +45,4 @@ const Start = ({navigation}) => {
     );
 }
 
-const Sub =() => {
-    return (
-        <Subsite/>
-    );
-}
+
