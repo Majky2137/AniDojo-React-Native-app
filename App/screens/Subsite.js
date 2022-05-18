@@ -1,13 +1,14 @@
 import Main from '../components/main';
 import { ScrollView, StyleSheet, Text, Button ,Alert, View, Image,SafeAreaView, ImageBackground,TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
+import { LikeButton } from '../components/Buttons';
+import Video from '../components/Video';
 
 
 
 
 
-export default function Subsite({route, navigation})  {
-
+export default function Subsite({ navigation,route })  {
   const {item} = route.params;
   return (
     <SafeAreaView style={styles.wrapper}>
@@ -16,13 +17,17 @@ export default function Subsite({route, navigation})  {
           
           <ImageBackground source={item.mainimage} resizeMode="cover" style={styles.image}>
           <View style={styles.overlay} />
-          <TouchableOpacity style={{top:30, padding:15,position:'absolute',}} onPress={() => navigation.goBack('HomeScreen')}>
+          <TouchableOpacity style={{top:40, padding:15,position:'absolute',}} onPress={() => navigation.goBack('HomeScreen')}>
                   <Icon style={{ fontSize: 30,color:'white'}} name={"chevron-thin-left"} />
+                  
               </TouchableOpacity>
+              <LikeButton/>
           <View style={styles.tit}>
           <Text style={[styles.upheading,{color: item.color}]}>{item.title}</Text>
-          <Text style={styles.heading}>{item.maintitle}</Text>
+          <Text style={styles.heading}>{item.maintitle} </Text>
+   
           <Text style={styles.heading2}>{item.status}</Text>
+          
         
           </View>
           </ImageBackground>
@@ -103,17 +108,18 @@ const styles = StyleSheet.create({
   justifyContent:'center',
   borderRadius:25,
   top:'60%',
+  maxHeight:50,
   paddingHorizontal:20,
-  position:'relative',
   textAlign:'justify',
-  textDecorationStyle:'stroke'
+  textDecorationStyle:'stroke',
+  position:'relative'
  
 
 
 },
 overlay: {
   ...StyleSheet.absoluteFillObject,
-  backgroundColor: 'rgba(0,0,0,0.25)'
+  backgroundColor: 'rgba(38,62,62,0.40)'
 }
 
 });

@@ -16,12 +16,14 @@ const Main = (items) => {
     return (
         
         <View style={styles.main}>
-            <View style={styles.heartbox}>
-                <LikeButton/>
-            </View>
         <View style={styles.wrapper}>
+            
+            <View style={styles.desc_cont}>
+            <Text style={styles.title}>{items.title}</Text>
+            
+          </View>
+            
             <View style={styles.descwrapper}>
-                    <Text style={styles.title}>{items.title}</Text>
                     <ScrollView nestedScrollEnabled={true}>
                     <Text style={styles.info}>{items.description}</Text>
                     </ScrollView>   
@@ -43,7 +45,7 @@ const styles= StyleSheet.create({
         backgroundColor:'#f8f9fa',
         height:'100%',
         position:'relative',
-        top:'-2.5%',
+        top:'-2.35%',
         width:'100%',
         left:0,
         opacity:1,
@@ -65,7 +67,7 @@ const styles= StyleSheet.create({
     },
  
     descwrapper: {
-        maxHeight:200,
+        maxHeight:130,
         width:'100%',
         flexDirection:'column',
         alignItems:'baseline',
@@ -74,14 +76,22 @@ const styles= StyleSheet.create({
         
     },
   
+    desc_cont:{
+        flex: 1,
+    flexDirection:'row',
+    alignSelf:'flex-start'
+    
+
+    },
 
     title: {
-        fontSize:24,
-        textAlign:'left',
-        fontWeight:'bold',
+        fontSize:22,
+        paddingVertical:15,
+        fontFamily:'LatoR',
         color:'#494949',
-        top:'-13%',
+        
         opacity:0.9,
+       
        
     },
 
@@ -93,33 +103,16 @@ const styles= StyleSheet.create({
         textAlign:'justify',
         lineHeight:20,
         fontSize:16,
+        fontFamily:'LatoR',
         color:'#bdbdbd',
         maxHeight:200,
         zIndex:99,
-        marginBottom:10,
         paddingHorizontal:10, 
         textShadowColor: '#e0e0e0', textShadowOffset: { width: 0.1, height: 1.2 }, textShadowRadius: 1,
       
     },
 
-    heartbox: {
-        position:'relative',
-        width:70,
-        left:"75%",
-        height:70,
-        backgroundColor:'#FFF',
-        top:'-2.5%',
-        borderRadius:50,
-        shadowColor: "#000",
-        shadowOffset: {
-	        width: 0,
-	        height: 3,
-                    },
-        shadowOpacity: 0.29,
-        shadowRadius: .65,
-        elevation: 7,
-        paddingHorizontal:4.7,
-    },
+    
 
   
      

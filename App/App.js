@@ -2,31 +2,71 @@ import * as React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView, StyleSheet, Text, Button ,Alert, View, Image, ImageBackground,TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { TabView } from 'react-native-tab-view';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Subsite from './screens/Subsite';
 import HomeScreen from './screens/HomeScreen'
-import CatSlider from './components/CategorieSlider';
-import BannerSlider from './components/BannerSlider';
+import Profile from './screens/Profile';
+import List from './screens/List'
 
-
+Icon.loadFont();
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-export default function App() {
+const TabNavigator = (navigation,route) => {
   return (
-    <NavigationContainer>
-          <Stack.Navigator >
-              <Stack.Screen options={{headerShown: false}} component={Start} name='Start' />
-              <Stack.Screen options={{headerShown: false}}component={HomeScreen} name='HomeScreen' />
-              <Stack.Screen options={{headerShown: false}}component={Subsite} name='Subsite' />
-          </Stack.Navigator>
-      </NavigationContainer>
+        <Tab.Navigator 
+          tabBarOptions={{
+            style: styles.tabBar,
+            activeTintColor: '#B3BA91',
+            inactiveTintColor: 'gray',
+            showLabel: false,
+            showIcon: true, 
+          }}>
+            <Tab.Screen options={{ tabBarIcon: ({color}) => (
+                <Icon name="home" size={25} color={color} />
+                ),headerShown: false}}component={HomeScreen} name='HomeScreen' />
+
+            <Tab.Screen options={{ tabBarIcon: ({color}) => (
+                <Icon name="list" size={25} color={color} />
+                ),headerShown: false}}component={List} name='List' />
+           
+            <Tab.Screen options={{tabBarIcon: ({color}) => (
+                <Icon name="person-sharp" size={25} color={color} />
+                ),headerShown: false}}component={Profile} name='Profile' />
+        </Tab.Navigator>
+ 
   );
 }
 
-const Start = ({navigation}) => {
+
+const App = ({navigation}) => {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="TabNavigator"
+            component={TabNavigator}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Subsite"
+            component={Subsite}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Profile"
+            component={Profile}
+            options={{headerShown: false}}
+          />
+        
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  };
+const Start = ({navigation, route}) => {
     return (
         <SafeAreaView
           style={{
@@ -44,5 +84,13 @@ const Start = ({navigation}) => {
           </SafeAreaView>
     );
 }
+const styles = StyleSheet.create({
+    tabBar: {
+    
+  borderRadius:10,
 
+   
+    },
+  });
 
+export default App;

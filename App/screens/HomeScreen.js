@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView, StyleSheet, Text, Button ,Alert, View, Image, ImageBackground,Pressable,TouchableOpacity,FlatList, TextInput } from 'react-native';
-import Carousel from 'react-native-snap-carousel'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useFonts } from 'expo-font';
 import {FrSliderData} from '../model/data';
 import { SecondSliderData } from '../model/data';
 import BannerSlider from '../components/BannerSlider';
 import CatSlider from '../components/CategorieSlider';
-import { windowWidth, windowHeight, windowWidth2 } from '../utils/Dimensions';
 
 
 
@@ -18,21 +16,31 @@ import { windowWidth, windowHeight, windowWidth2 } from '../utils/Dimensions';
 
 
 
-export default function HomeScreen({navigation}) {
+
+export default function HomeScreen({ navigation}) {
+  
 
   const _renderBanner = ({item,index}) => {
     
     return (
-      <TouchableOpacity onPress={()=>navigation.navigate('Subsite', {item: item})}>
-    <BannerSlider data={item} />
+      <TouchableOpacity onPress={()=>navigation.navigate('Subsite', {item:item})}>
+    <BannerSlider  data={item} />
     </TouchableOpacity>
     
     ) 
   };
+  
+
+  
 
   const _renderCategorie = ({item,index}) => {
     return <CatSlider data={item} />
   };
+
+
+
+
+  
 
   const [loaded] = useFonts({
     RobotoM: require('../assets/fonts/Roboto-Medium.ttf'),
@@ -49,33 +57,56 @@ export default function HomeScreen({navigation}) {
   }
 
     return (
-    <SafeAreaView style={{flex:1, backgroundColor:'#f8f9fa'}}>
+    <SafeAreaView style={{flex:1, backgroundColor:'#FFFFFF'}}>
         <ScrollView style={{padding:20}}>
           <View style={styles.user_cont}>
             
-            <Text style={{fontFamily:'LatoBL',fontSize:18,top:10, opacity:0.7,}}>Hello User!</Text>
+            <Text style={{fontFamily:'RobotoM',fontSize:20,color:'#263E3E'}}>Hi User{"\n"}<Text style={{fontFamily:'LatoR',fontSize:18,color:'#B3BA91' }}>Good Morning</Text></Text>
+            <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
               <ImageBackground 
               source={require('../assets/images/user-prof-pic2.jpg')} 
               style={styles.image}  
-              imageStyle={{borderRadius:10,}}
+              imageStyle={{borderRadius:50,}}
               />
-              
+              </TouchableOpacity>
           </View>
 
           <View style={styles.search_container}>
-            <Icon style={{marginRight:5,top:3,opacity:0.4,fontFamily:'RobotoM'}} name="search" size={20} color="#64b5f6" />
-            <TextInput placeholder='Search' style={{width:'100%',color:'#64b5f6',fontFamily:'RobotoM'}}/>
+            <Icon style={{marginRight:5,top:3,fontFamily:'LatoR'}} name="search-outline" size={20} color='#263E3E'  />
+            <TextInput placeholderTextColor={'#263E3E' }placeholder='Search' style={{width:'100%',color:'#263E3E',fontFamily:'LatoR'}}/>
           </View>
           
-
           <View style={{
-            marginVertical:20,
+            marginVertical:14,
             flexDirection:'row',
             justifyContent:'space-between',
             }}>
-            <Text style={{fontFamily:'RobotoM',fontSize:18, opacity:0.7, }}>Popular series</Text>
+            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#263E3E' }}>Genres</Text>
+            <TouchableOpacity>
+              <Text style={{color:'#B3BA91',fontFamily:'RobotoM'}}>See all</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.Wrapper}>
+          <View style={styles.ItemsWrapper}>
+            <FlatList
+              data={SecondSliderData}
+              renderItem={_renderCategorie}
+              keyExtractor={(item) => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              loop={true}
+              autoscroll={true}
+            />
+          </View>
+        </View>
+          <View style={{
+            marginVertical:14,
+            flexDirection:'row',
+            justifyContent:'space-between',
+            }}>
+            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#263E3E' }}>Trending Now </Text>
             <TouchableOpacity >
-              <Text style={{color:'#64b5f6',fontFamily:'RobotoM'}}>See all</Text>
+              <Text style={{color:'#B3BA91',fontFamily:'RobotoM'}}>See all</Text>
             </TouchableOpacity>
           </View>
           
@@ -92,28 +123,20 @@ export default function HomeScreen({navigation}) {
             />
           </View>
         </View>
-<View style={{
-            marginVertical:20,
+
+        <View style={{
+            marginVertical:14,
             flexDirection:'row',
             justifyContent:'space-between',
             }}>
-            <Text style={{fontFamily:'RobotoM',fontSize:18, opacity:0.7, }}>Categories</Text>
-            <TouchableOpacity>
-              <Text style={{color:'#64b5f6',fontFamily:'RobotoM'}}>See all</Text>
+            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#263E3E' }}>Now Airing </Text>
+            <TouchableOpacity >
+              <Text style={{color:'#B3BA91',fontFamily:'RobotoM'}}>See all</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.Wrapper}>
-          <View style={styles.ItemsWrapper}>
-            <FlatList
-              data={SecondSliderData}
-              renderItem={_renderCategorie}
-              keyExtractor={(item) => item.id}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              loop={true}
-              autoscroll={true}
-            />
-          </View>
+
+        <View>
+
         </View>
           
          
@@ -134,27 +157,25 @@ user_cont: {
 search_container:{
     flexDirection:'row',
     justifyContent:'space-between',
-    borderWidth:0.2,
-    borderColor:'#C6C6C6',
-    borderRadius:15,
+    borderColor:'#B3BA91',
+    borderWidth:0.3,
+    borderRadius:10,
     paddingHorizontal:10,
-    paddingVertical:8,
-    marginVertical:5,
-    
+    paddingVertical:10,
+    marginVertical:10,
+    width:'95%',
+    alignSelf:'center'
 },
 
   image: {
-    width:45,
-    height:45,
+    width:50,
+    height:50,
   },
   
-
-  rWrapper: {
-    marginTop: 20,
-  },
   
   ItemsWrapper: {
-    paddingVertical: 20,
+    paddingVertical: 5,
+    
   },
 });
 

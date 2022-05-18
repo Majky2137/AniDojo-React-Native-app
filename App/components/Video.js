@@ -4,12 +4,14 @@ import YoutubePlayer from "react-native-youtube-iframe";
 import {StyleSheet, Text, Button ,Alert, View, TouchableOpacity, } from 'react-native';
 import {TextInput, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {item} from '../screens/Subsite'
+import {item} from '../screens/Subsite';
+import {useRoute} from '@react-navigation/native';
 
+export default function Video ({navigation}) {
+    
+    const route = useRoute();
+    const params= route.params.item;
 
-
-const Video = () => {
-  
     const [playing, setPlaying] = useState(false);
 
   const onStateChange = useCallback((state) => {
@@ -24,11 +26,14 @@ const Video = () => {
   }, []);
         return (
                   <YoutubePlayer 
+                  controls={2}
                     height={'100%'}
                     width={'100%'}
                     borderRadius={'20'}
                     play={playing}
-                    videoId={'VQGCKyvzIM4'}/> 
+                    videoId={params.video}
+                    /> 
+                    
         )
       };
 
@@ -52,4 +57,3 @@ const styles= StyleSheet.create({
 });
 
 
-export default Video;

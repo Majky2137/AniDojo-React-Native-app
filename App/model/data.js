@@ -1,15 +1,25 @@
 import React from 'react';
-import {
-  Text, 
-  View,
-  SafeAreaView, TouchableOpacity, } from 'react-native';
 
-import Carousel from 'react-native-snap-carousel';
+
+
 
 
 export const FrSliderData = [
+    {
+        id:'1',
+        video:'nSZFVfvJSZQ',
+        title:'Shijou Saikyou no Daimaou, Murabito A ni Tensei suru',
+        maintitle:'The Greatest Demon Lord Is Reborn as a Typical Nobody',
+        status:'Airing',
+        description:"As the most powerful entity of all time, the Demon Lord Varvatos thinks life is a big fat snore. When he takes matters into his own hands and decides to reincarnate, he calibrates his magical strength to be perfectly average. But there is no way he could have predicted that everyone in the modern world would be weak as hell, which means he is totally overpowered once again! Reborn under the name Ard, he has ladies fawning over him, the royal family begging him to become the next king, and an ex-minion insisting on killing him?! But Ard has a one-track mind, and he won't stop at anything to achieve his ultimate goal!\n\n(Source: Yen Press)",
+        thumbnail:{uri:'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx130586-vzoz4X37RZwc.jpg'},
+        mainimage:{uri:'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx130586-vzoz4X37RZwc.jpg'},
+        color:'#50bbe4',
+        studio:'TV Series',
+    },
+
   {
-      id:'anime-1',
+      id:'2',
       video:'VQGCKyvzIM4',
       title:'Kimetsu no Yaiba',
       maintitle:'Demon Slayer',
@@ -18,23 +28,39 @@ export const FrSliderData = [
       thumbnail:{uri:'https://i.ibb.co/HpLvFRt/Demon-Slayer-cover.jpg'},
       mainimage:{uri:'https://i.ibb.co/PhFrLH5/bx101922-PEn1-CTc93bl-C.jpg'},
       color:'#64b5f6',
+      studio:'TV Series',
   },
   
   {
-      id:'anime-2',
-      video:'9N8VGaf4img',
+    id:'3',
+    video:'kx0nBaS_q50',
+    title:'Hagane no Renkinjutsushi: FULLMETAL ALCHEMIST',
+    maintitle:'Fullmetal Alchemist: Brotherhood',
+    status:'Finished airing',
+    description:"In order for something to be obtained, something of equal value must be lost.Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize after attempting human transmutation: the one forbidden act of alchemy. They pay a terrible price for their transgression—Edward loses his left leg, Alphonse his physical body. It is only by the desperate sacrifice of Edward's right arm that he is able to affix Alphonse's soul to a suit of armor. Devastated and alone, it is the hope that they would both eventually return to their original bodies that gives Edward the inspiration to obtain metal limbs called automail and become a state alchemist, the Fullmetal Alchemist.Three years of searching later, the brothers seek the Philosopher's Stone, a mythical relic that allows an alchemist to overcome the Law of Equivalent Exchange. Even with military allies Colonel Roy Mustang, Lieutenant Riza Hawkeye, and Lieutenant Colonel Maes Hughes on their side, the brothers find themselves caught up in a nationwide conspiracy that leads them not only to the true nature of the elusive Philosopher's Stone, but their country's murky history as well. In between finding a serial killer and racing against time, Edward and Alphonse must ask themselves if what they are doing will make them human again... or take away their humanity.(Source: MAL Rewrite)",
+    thumbnail:{uri:'https://i.ibb.co/sVW4Nvh/bx5114-KJTQz9-AIm6-Wk.jpg'},
+    mainimage:{uri:'https://i.ibb.co/sVW4Nvh/bx5114-KJTQz9-AIm6-Wk.jpg'},
+    color:'#e4c993',
+    studio:'TV Series',
+},
+
+
+  {
+      id:'4',
+      video:'GWeuZr6fT6o',
       title:'Gintama: THE VERY FINAL',
       maintitle:'Gintama: THE FINAL',
       status:'Finished airing',
       description:"Gintama: THE FINAL is the 3rd and final film adaptation of the remainder of the Silver Soul arc and is the series finale.",
-      thumbnail:{uri:'https://i.ibb.co/Y7dKjp8/bx114129-RLg-Suh6-Ybe-Yx.jpg'},
+      thumbnail:{uri:'https://i.ibb.co/6ByFW5Y/bx114129-RLg-Suh6-Ybe-Yx-1.jpg'},
       mainimage:{uri:'https://i.ibb.co/6ByFW5Y/bx114129-RLg-Suh6-Ybe-Yx-1.jpg'},
       color:'#00FA9A',
+      studio:'Movie',
   },
 
   {
-    id:'anime-3',
-    video:'9N8VGaf4img',
+    id:'5',
+    video:'tYDDS0OzV_Q',
     title:'High School DxD',
     maintitle:'High School DxD',
     status:'Finished airing',
@@ -42,36 +68,60 @@ export const FrSliderData = [
     thumbnail:{uri:'https://i.ibb.co/jhTgH32/nx11617-nmx-MU9-Zh3-H5-R.jpg'},
     mainimage:{uri:'https://i.ibb.co/mqNYhNB/bx20745-Hz-WTPFv0-P13-I.jpg'},
     color:'#B0E0E6',
+    studio:'TV Series',
 },
+
+
   
 
   
   ];
   
   export const SecondSliderData = [
-      {
-          id:'catego-1',
-          title:'Harem',
-          image:{uri:'https://i.ibb.co/jhTgH32/nx11617-nmx-MU9-Zh3-H5-R.jpg'},
-      },
-      
-      {
-          id:'catego-2',
-          title:'Action',
-          image:{uri:'https://i.ibb.co/HpLvFRt/Demon-Slayer-cover.jpg'},
-      },
-      
-      {
-          id:'catego-3',
-          title:'Romance',
-          image:{uri:'https://i.ibb.co/cNBJfZc/bx2167-ub-U2875-AFRTH.jpg'},
-      },
+    {
+        id:'1',
+        title:'Magic',
+        image:{uri:'https://i.ibb.co/LNZpfMB/bx124194-p-Wf-Bqp3-Ggj-Ox.jpg'},
+    },
+    {
+        id:'2',
+        title:'Romance',
+        image:{uri:'https://i.ibb.co/cNBJfZc/bx2167-ub-U2875-AFRTH.jpg'},
+    },
+
+   
+
+    {
+        id:'3',
+        title:'Comedy',
+        image:{uri:'https://i.ibb.co/6ByFW5Y/bx114129-RLg-Suh6-Ybe-Yx-1.jpg'},
+    },
+
+    
+
+    {
+        id:'4',
+        title:'Action',
+        image:{uri:'https://i.ibb.co/HpLvFRt/Demon-Slayer-cover.jpg'},
+        
+    },
+    {
+        id:'5',
+        title:'Adventure',
+        image:{uri:'https://i.ibb.co/sVW4Nvh/bx5114-KJTQz9-AIm6-Wk.jpg'},
+    },
   
-      {
-          id:'catego-4',
-          title:'Ecchi',
-          image:require('../assets/images/home/cat1.jpg'),
-      },
+    {
+        id:'6',
+        title:'Ecchi',
+        image:require('../assets/images/home/cat1.jpg'),
+    },
+
+    {
+        id:'7',
+        title:'Harem',
+        image:{uri:'https://i.ibb.co/jhTgH32/nx11617-nmx-MU9-Zh3-H5-R.jpg'},
+  },
       
       ];
   

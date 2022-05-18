@@ -9,33 +9,27 @@ const LikeButton = () => {
         const [liked, setLiked] = useState(null);
         return (
             <TouchableOpacity onPress={() => setLiked((isLiked) => !isLiked)}>
-            <Icon style={styles.heart} name={liked ? "heart-circle-sharp" : "heart-dislike-circle"}
-            color={liked ? "red" : "#64b5f6"}/>
+            <Icon style={styles.heart} name={liked ? "ios-heart-circle" : "ios-heart-dislike-circle"}
+            color={liked ? "#d64161" : "#fff"}/>
          </TouchableOpacity>
         )
       };
 
 
  
-const RatingButton = () => {
-        const [liked, setLiked] = useState(null);
-        return (
-            <TouchableOpacity onPress={() => setLiked((isLiked) => !isLiked)}>
-            <Icon style={styles.heart} name={liked ? "heart-circle-sharp" : "heart-dislike-circle"}
-            color={liked ? "red" : "#64b5f6"}/>
-         </TouchableOpacity>
-        )
-      };
+
 
       const styles= StyleSheet.create({
       heart: {    
-        opacity:0.7,
+        position:'absolute',
         fontSize:65,
-        textShadowColor: '#e0e0e0', textShadowOffset: { width: 0, height: 3 }, textShadowRadius: 3,
+        alignSelf:'flex-end',
+        right:15,
+        top:40,    
     },
 });
 
-export {LikeButton, RatingButton};
+export {LikeButton};
 
 
 
