@@ -42,7 +42,7 @@ export default function BannerSlider({data}) {
           <Text style={[styles.ItemTitle,{overflow:'hidden'}]}>{data.maintitle}</Text>
           
           <View style={styles.ItemTypeWrapper}>
-            <Icon name="video" size={18} color={'#B3BA91'} />
+            <Icon name="video" size={18} color={'#9A6AFF'} />
             <Text style={styles.ItemType}>{data.studio}</Text>
           </View>
           
@@ -62,14 +62,15 @@ Item: {
   backgroundColor:'#ECF6FF',
   opacity:0.9,
   borderRadius: 10,
-  shadowColor: "#110b0b",
+  shadowColor: "#9A6AFF",
   shadowOffset: {
     width: 0,
     height: 6,
   },
-  shadowOpacity:  0.21,
+  shadowOpacity:  0.1,
   shadowRadius: 6.65,
-  elevation: 9
+  elevation: 6,
+  marginVertical:10,
 },
 ItemImage: {
   borderRadius: 10,
@@ -78,7 +79,7 @@ ItemImage: {
 ItemTitle: {
   fontFamily: 'RobotoM',
   fontSize: 18,
-  color: 'white',
+  color: '#E3E3E3',
   marginLeft:5,
   maxWidth:105,
   maxHeight:70,
@@ -101,7 +102,7 @@ ItemType: {
   marginLeft: 5,
   fontFamily: 'LatoB',
   fontSize: 14,
-  color:'white',
+  color:'#E3E3E3',
   
 },
 

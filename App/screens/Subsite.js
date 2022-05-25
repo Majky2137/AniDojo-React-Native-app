@@ -14,33 +14,21 @@ export default function Subsite({ navigation,route })  {
     <SafeAreaView style={styles.wrapper}>
     <ScrollView style={styles.cont}>
         <View >
-          
-          <ImageBackground source={item.mainimage} resizeMode="cover" style={styles.image}>
+          <ImageBackground source={item.mainimage} resizeMode="cover" imageStyle={{borderBottomLeftRadius:65,borderBottomRightRadius:65}} style={styles.image}>
           <View style={styles.overlay} />
-          <TouchableOpacity style={{top:40, padding:15,position:'absolute',}} onPress={() => navigation.goBack('HomeScreen')}>
-                  <Icon style={{ fontSize: 30,color:'white'}} name={"chevron-thin-left"} />
-                  
+          <TouchableOpacity style={{top:30, left:15, padding:15,position:'absolute',opacity:0.5,}} onPress={() => navigation.goBack('HomeScreen')}>
+                  <Icon style={{ fontSize: 20,color:'white', backgroundColor:'grey',borderRadius:30,padding:10,}} name={"chevron-thin-left"} />
               </TouchableOpacity>
-              <LikeButton/>
-          <View style={styles.tit}>
-          <Text style={[styles.upheading,{color: item.color}]}>{item.title}</Text>
-          <Text style={styles.heading}>{item.maintitle} </Text>
-   
-          <Text style={styles.heading2}>{item.status}</Text>
-          
-        
-          </View>
           </ImageBackground>
-          
           <Main 
-          title="Description" 
+          status={item.status}
+          title={item.title} 
+          maintitle={item.maintitle}
+          color={item.color}
           description={item.description}>
           </Main>  
         </View> 
-        
-    
   </ScrollView>
-  
   </SafeAreaView>    
   );
   
@@ -55,71 +43,35 @@ const styles = StyleSheet.create({
     zIndex:-1,
     position:'relative',
     width:'100%',
+
+
     
   },
   wrapper: {
     flex: 1,
-    backgroundColor:'#e9ecef',
     height:'auto',
     zIndex:-1,
+    backgroundColor:'#1E2029',
+
+
     
   },
 
   image: {
     width:'100%',
-    height:450,
+    height:430,
     position:"relative",
     zIndex:-1,
     
   },
 
-  heading: {
-    fontSize:35,
-    textAlign:'left',
-    fontWeight:'bold',
-    marginBottom:0,
-    color:'#FFF',
-    textShadowColor: '#000', textShadowOffset: { width: 0.5, height: 1 }, textShadowRadius: 6,
-  
-  },
-
-  heading2: {
-    fontSize:20,
-    textAlign:'left',
-    fontWeight:'bold',
-    marginBottom:0,
-    color:'#DCDCDC',
-    textShadowColor: '#000', textShadowOffset: { width: 0.5, height: 0.5 }, textShadowRadius: 0.2,
-  },
-
-  upheading: {
-    fontSize:22,
-    textAlign:'left',
-    fontWeight:'bold',
-    marginBottom:0,
-    textShadowColor: '#000', textShadowOffset: { width: 0.7, height: 0.7 }, textShadowRadius: 3,
-  },
-  
-
-  tit: {
-  width:'100%',
-  flexDirection:'column',
-  alignItems:'baseline',
-  justifyContent:'center',
-  borderRadius:25,
-  top:'60%',
-  maxHeight:50,
-  paddingHorizontal:20,
-  textAlign:'justify',
-  textDecorationStyle:'stroke',
-  position:'relative'
- 
 
 
-},
 overlay: {
   ...StyleSheet.absoluteFillObject,
-  backgroundColor: 'rgba(38,62,62,0.40)'
+  backgroundColor: 'rgba(38,62,62,0.30)',
+  borderBottomLeftRadius:65,
+  borderBottomRightRadius:65
 }
 
 });

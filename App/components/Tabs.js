@@ -10,7 +10,7 @@ import Constants from 'expo-constants';
 
 const FirstRoute = () => (
   
-  <Video style={[styles.scene, { backgroundColor: '#673ab7' }]} episode= "Preview"/> 
+  <Video style={[styles.scene, { backgroundColor: '#673ab7' }]} episode= "Trailer"/> 
 );
 
 const SecondRoute = () => (
@@ -22,12 +22,12 @@ const ThirdRoute = () => (
 
 const initialLayout = { width: Dimensions.get('window').width };
 
-export default class TabViewExample extends React.Component {
+export default class Tabs extends React.Component {
   state = {
     index: 0,
     routes: [
-      { key: 'first', title: 'Preview' },
-      { key: 'second', title: 'Episodes'},
+      { key: 'first', title: 'Trailer' },
+      { key: 'second', title: 'Relations'},
       {key: 'third', title: 'Characters' },
     ],
   };
@@ -43,7 +43,7 @@ export default class TabViewExample extends React.Component {
           const opacity = props.position.interpolate({
             inputRange,
             outputRange: inputRange.map((inputIndex) =>
-              inputIndex === i ? 1 : 0.3
+              inputIndex === i ? 1 : 0.5
             ),
           });
 
@@ -51,7 +51,7 @@ export default class TabViewExample extends React.Component {
             <TouchableOpacity
               style={styles.tabItem}
               onPress={() => this.setState({ index: i })}>
-              <Animated.Text style={{ opacity }}>{route.title}</Animated.Text>
+              <Animated.Text style={{ opacity, color:'white' }}>{route.title}</Animated.Text>
             </TouchableOpacity>
           );
         })}
@@ -88,10 +88,12 @@ const styles = StyleSheet.create({
     borderRadius:10,
     overflow: 'hidden',
     position:'relative',
+    marginBottom:30,
     
   },
   tabBar: {
     flexDirection: 'row',
+   
 
     
   },
@@ -105,6 +107,7 @@ const styles = StyleSheet.create({
   
   scene: {
     flex: 1,
+    
     
   },
 });

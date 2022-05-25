@@ -22,15 +22,18 @@ export default function CatSlider({data})  {
 
     return (
       <View >
+        
       <View
   
       imageStyle={styles.ItemImage} style={[
         styles.Item,
         { borderRadius:10,marginLeft: data.id === '1' ? 7 : 0},
      ]}>
-       <View style={styles.overlay} />
+
           <Text style={{fontFamily: 'RobotoM',fontSize:16,opacity:1,textAlign:'center',color:'white'}}>{data.title}</Text> 
+         
       </View>
+      
       </View>
     )
   }
@@ -44,19 +47,16 @@ export default function CatSlider({data})  {
       alignItems:'center',
       marginRight:20,
       textAlign:'center',
-      borderColor:'#B3BA91',
+      borderColor:'#9A6AFF',
       borderWidth:0.3,
+      backgroundColor:'#9A6AFF'
     },
 
     ItemImage: {
       borderRadius: 10,
     },
 
-    overlay: {
-      ...StyleSheet.absoluteFillObject,
-      backgroundColor: '#B3BA91',
-      borderRadius:10
-    },
+ 
   
  
   

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView, StyleSheet, Text, Button ,Alert, View, Image, ImageBackground,Pressable,TouchableOpacity,FlatList, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -7,18 +7,13 @@ import {FrSliderData} from '../model/data';
 import { SecondSliderData } from '../model/data';
 import BannerSlider from '../components/BannerSlider';
 import CatSlider from '../components/CategorieSlider';
-
-
-
-
-
-
+import AiringList from '../components/airing';
 
 
 
 
 export default function HomeScreen({ navigation}) {
-  
+  const [AnimeAirTab, setAnimeAirTab] = useState(1);
 
   const _renderBanner = ({item,index}) => {
     
@@ -29,18 +24,12 @@ export default function HomeScreen({ navigation}) {
     
     ) 
   };
-  
-
-  
 
   const _renderCategorie = ({item,index}) => {
+   
     return <CatSlider data={item} />
   };
 
-
-
-
-  
 
   const [loaded] = useFonts({
     RobotoM: require('../assets/fonts/Roboto-Medium.ttf'),
@@ -57,35 +46,47 @@ export default function HomeScreen({ navigation}) {
   }
 
     return (
-    <SafeAreaView style={{flex:1, backgroundColor:'#FFFFFF'}}>
-        <ScrollView style={{padding:20}}>
+    <SafeAreaView style={{flex:1, backgroundColor: '#1E2029',}}>
+        <ScrollView contentContainerStyle={{flexGrow: 1}} style={{padding:20, }}>
           <View style={styles.user_cont}>
-            
-            <Text style={{fontFamily:'RobotoM',fontSize:20,color:'#263E3E'}}>Hi User{"\n"}<Text style={{fontFamily:'LatoR',fontSize:18,color:'#B3BA91' }}>Good Morning</Text></Text>
-            <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
               <ImageBackground 
               source={require('../assets/images/user-prof-pic2.jpg')} 
               style={styles.image}  
-              imageStyle={{borderRadius:50,}}
+              imageStyle={{borderRadius:50,borderColor:'#9A6AFF',borderWidth:1,}}
               />
               </TouchableOpacity>
+             
+              <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
+              <Icon style={{ fontSize: 30,color:'#9A6AFF',paddingTop:10,}} name={"notifications-outline"} />
+              </TouchableOpacity>
+            
+            
           </View>
-
-          <View style={styles.search_container}>
-            <Icon style={{marginRight:5,top:3,fontFamily:'LatoR'}} name="search-outline" size={20} color='#263E3E'  />
-            <TextInput placeholderTextColor={'#263E3E' }placeholder='Search' style={{width:'100%',color:'#263E3E',fontFamily:'LatoR'}}/>
-          </View>
-          
           <View style={{
             marginVertical:14,
             flexDirection:'row',
             justifyContent:'space-between',
             }}>
-            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#263E3E' }}>Genres</Text>
+            <Text style={{fontFamily:'RobotoM',fontSize:24, color:'#E3E3E3' }}>Explore</Text>
+          
+          </View>
+          <View style={styles.search_container}>
+            <Icon style={{marginRight:5,top:3,fontFamily:'LatoR'}} name="search-outline" size={20} color='#9A6AFF'  />
+            <TextInput placeholderTextColor={'#E3E3E3' }placeholder='Search' style={{width:'100%',color:'#263E3E',fontFamily:'LatoR'}}/>
+          </View>
+         
+          <View style={{
+            marginVertical:14,
+            flexDirection:'row',
+            justifyContent:'space-between',
+            }}>
+            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#E3E3E3' }}>Genres</Text>
             <TouchableOpacity>
-              <Text style={{color:'#B3BA91',fontFamily:'RobotoM'}}>See all</Text>
+              <Text style={{color:'#9A6AFF',fontFamily:'RobotoM'}}>See all</Text>
             </TouchableOpacity>
           </View>
+
           <View style={styles.Wrapper}>
           <View style={styles.ItemsWrapper}>
             <FlatList
@@ -94,19 +95,18 @@ export default function HomeScreen({ navigation}) {
               keyExtractor={(item) => item.id}
               horizontal
               showsHorizontalScrollIndicator={false}
-              loop={true}
-              autoscroll={true}
             />
           </View>
         </View>
+
           <View style={{
             marginVertical:14,
             flexDirection:'row',
             justifyContent:'space-between',
             }}>
-            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#263E3E' }}>Trending Now </Text>
+            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#E3E3E3' }}>Trending Now </Text>
             <TouchableOpacity >
-              <Text style={{color:'#B3BA91',fontFamily:'RobotoM'}}>See all</Text>
+              <Text style={{color:'#9A6AFF',fontFamily:'RobotoM'}}>See all</Text>
             </TouchableOpacity>
           </View>
           
@@ -125,22 +125,32 @@ export default function HomeScreen({ navigation}) {
         </View>
 
         <View style={{
-            marginVertical:14,
+            marginVertical:16,
             flexDirection:'row',
             justifyContent:'space-between',
             }}>
-            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#263E3E' }}>Now Airing </Text>
+            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#E3E3E3' }}>Now Airing </Text>
             <TouchableOpacity >
-              <Text style={{color:'#B3BA91',fontFamily:'RobotoM'}}>See all</Text>
+              <Text style={{color:'#9A6AFF',fontFamily:'RobotoM'}}>See all</Text>
             </TouchableOpacity>
           </View>
-
-        <View>
-
-        </View>
-          
          
+          <View style={{marginBottom:105, maxHeight:400, minHeight:260}}>
+          <ScrollView nestedScrollEnabled={true}>
+         {AnimeAirTab == 1 &&
+          FrSliderData.map(item => (
+            <TouchableOpacity onPress={()=>navigation.navigate('Subsite', {item:item})}>
+            <AiringList
+            key={item.id}
+              data={item}
+            />
+              </TouchableOpacity>
+          ))}
+           </ScrollView>
+      </View>
+     
         </ScrollView>
+        
     </SafeAreaView>
     );
 }
@@ -157,14 +167,15 @@ user_cont: {
 search_container:{
     flexDirection:'row',
     justifyContent:'space-between',
-    borderColor:'#B3BA91',
+    borderColor:'#9A6AFF',
     borderWidth:0.3,
     borderRadius:10,
     paddingHorizontal:10,
     paddingVertical:10,
     marginVertical:10,
     width:'95%',
-    alignSelf:'center'
+    alignSelf:'center',
+ 
 },
 
   image: {
@@ -175,7 +186,7 @@ search_container:{
   
   ItemsWrapper: {
     paddingVertical: 5,
-    
+
   },
 });
 

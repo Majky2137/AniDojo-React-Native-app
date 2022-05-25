@@ -70,6 +70,18 @@ export const FrSliderData = [
     color:'#B0E0E6',
     studio:'TV Series',
 },
+{
+    id:'6',
+    video:'tYDDS0OzV_Q',
+    title:'Date A Live IV',
+    maintitle:'Date A Live IV',
+    status:'Airing',
+    description:"The fourth season of Date A Live",
+    thumbnail:{uri:'https://i.ibb.co/Ypbbz8Q/bx116605-uz-Dak-Xna-Z1-OW.jpg'},
+    mainimage:{uri:'https://i.ibb.co/Ypbbz8Q/bx116605-uz-Dak-Xna-Z1-OW.jpg'},
+    color:'#B0E0E6',
+    studio:'TV Series',
+},
 
 
   

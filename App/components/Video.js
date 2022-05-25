@@ -29,7 +29,7 @@ export default function Video ({navigation}) {
                   controls={2}
                     height={'100%'}
                     width={'100%'}
-                    borderRadius={'20'}
+                    borderRadius={20}
                     play={playing}
                     videoId={params.video}
                     /> 

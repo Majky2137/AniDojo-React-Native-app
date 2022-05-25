@@ -18,23 +18,35 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = (navigation,route) => {
   return (
         <Tab.Navigator 
-          tabBarOptions={{
-            style: styles.tabBar,
-            activeTintColor: '#B3BA91',
-            inactiveTintColor: 'gray',
-            showLabel: false,
-            showIcon: true, 
-          }}>
+          screenOptions={{
+            tabBarActiveTintColor: '#9A6AFF',
+            tabBarInactiveTintColor: '#E3E3E3',
+            tabBarShowLabel: false,
+            tabBarIcon: true,
+            tabBarStyle: 
+            {
+              position:'absolute',
+              borderTopWidth: 0,
+              bottom:25,
+              left:20,
+              right:20,
+              elevation:3,
+              backgroundColor:'#181818',
+              borderRadius:25,
+              height:70,
+              
+            },      
+}}>
             <Tab.Screen options={{ tabBarIcon: ({color}) => (
-                <Icon name="home" size={25} color={color} />
+                <Icon name="home" size={22} color={color} />
                 ),headerShown: false}}component={HomeScreen} name='HomeScreen' />
 
             <Tab.Screen options={{ tabBarIcon: ({color}) => (
-                <Icon name="list" size={25} color={color} />
+                <Icon name="list" size={23} color={color} />
                 ),headerShown: false}}component={List} name='List' />
            
             <Tab.Screen options={{tabBarIcon: ({color}) => (
-                <Icon name="person-sharp" size={25} color={color} />
+                <Icon name="person-sharp" size={22} color={color} />
                 ),headerShown: false}}component={Profile} name='Profile' />
         </Tab.Navigator>
  
@@ -57,6 +69,11 @@ const App = ({navigation}) => {
             options={{headerShown: false}}
           />
           <Stack.Screen
+            name="List"
+            component={List}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
             name="Profile"
             component={Profile}
             options={{headerShown: false}}
@@ -66,31 +83,9 @@ const App = ({navigation}) => {
       </NavigationContainer>
     );
   };
-const Start = ({navigation, route}) => {
-    return (
-        <SafeAreaView
-          style={{
-              flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: '#FFF',
-          }}>
-              <View>
-                  <Text style={{ fontSize: 30, }}>Enter</Text>
-              </View>
-              <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
-                  <Icon style={{ fontSize: 50, }} name={"arrow-forward-circle-outline"} />
-              </TouchableOpacity>
-          </SafeAreaView>
-    );
-}
-const styles = StyleSheet.create({
-    tabBar: {
-    
-  borderRadius:10,
 
-   
-    },
+const styles = StyleSheet.create({
+ 
   });
 
 export default App;

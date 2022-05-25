@@ -9,8 +9,8 @@ const LikeButton = () => {
         const [liked, setLiked] = useState(null);
         return (
             <TouchableOpacity onPress={() => setLiked((isLiked) => !isLiked)}>
-            <Icon style={styles.heart} name={liked ? "ios-heart-circle" : "ios-heart-dislike-circle"}
-            color={liked ? "#d64161" : "#fff"}/>
+            <Icon style={styles.heart} name={liked ? "ios-heart-circle-outline" : "ios-heart-dislike-circle"}
+            color={liked ? "#d64161" : "grey"}/>
          </TouchableOpacity>
         )
       };
@@ -22,10 +22,9 @@ const LikeButton = () => {
       const styles= StyleSheet.create({
       heart: {    
         position:'absolute',
-        fontSize:65,
+        fontSize:55,
         alignSelf:'flex-end',
-        right:15,
-        top:40,    
+        bottom:-1.5
     },
 });
 

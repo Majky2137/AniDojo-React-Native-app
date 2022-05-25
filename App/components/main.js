@@ -3,7 +3,7 @@ import {StyleSheet, Text, Button ,Alert, View, TouchableOpacity,TextInput, Scrol
 
 import {LikeButton, RatingButton} from './Buttons.js';
 import Video from './Video.js';
-import TabViewExample from './Tabs.js';
+import Tabs from './Tabs.js';
 import FrSliderData from '../model/data'
 
 
@@ -17,19 +17,26 @@ const Main = (items) => {
         
         <View style={styles.main}>
         <View style={styles.wrapper}>
-            
+        <View style={styles.stat_cont}>
+        <Text style={styles.upheading}>{items.status}</Text>
+        </View>
+        <LikeButton/>
             <View style={styles.desc_cont}>
-            <Text style={styles.title}>{items.title}</Text>
-            
+                
+            <View style={styles.tit}>
+                
+            <Text style={[styles.heading,{color:items.color}]}>{items.maintitle}</Text>
+          <Text style={styles.heading2}>{items.title}</Text>
           </View>
-            
+        
+          </View>
             <View style={styles.descwrapper}>
                     <ScrollView nestedScrollEnabled={true}>
                     <Text style={styles.info}>{items.description}</Text>
                     </ScrollView>   
             </View>  
         </View>
-        <TabViewExample/>
+        <Tabs/>
         </View>    
     )
 };
@@ -40,34 +47,26 @@ const Main = (items) => {
 const styles= StyleSheet.create({
 
     main: {
-        borderRadius:35,
+      
         flexDirection:'column',
-        backgroundColor:'#f8f9fa',
+        backgroundColor:'#1E2029',
         height:'100%',
         position:'relative',
-        top:'-2.35%',
         width:'100%',
         left:0,
         opacity:1,
-        shadowColor: "#000",
-        shadowOffset: {
-	    width: 0,
-	    height: 7,
-                    },
-        shadowOpacity: 0.41,
-        shadowRadius: 9.11,
-        elevation: 5,
-        paddingHorizontal:20,
+        paddingHorizontal:25,
+        position:'relative'
     },
 
     wrapper: {
         flexDirection:'column',
-        alignItems:'center',
-        justifyContent:'center',
+        
     },
  
     descwrapper: {
         maxHeight:130,
+        minHeight:130,
         width:'100%',
         flexDirection:'column',
         alignItems:'baseline',
@@ -78,22 +77,53 @@ const styles= StyleSheet.create({
   
     desc_cont:{
         flex: 1,
-    flexDirection:'row',
-    alignSelf:'flex-start'
+        flexDirection:'row',
+        justifyContent:'space-between',
+        marginBottom:30,
+    },
+    stat_cont:{
+        flex: 1,
+        flexDirection:'row',
+        justifyContent:'space-between',
+
+    },
+
     
+    
+    upheading: {
+        marginTop:20,
+        fontSize:16,
+        fontWeight:'bold',
+        marginBottom:13,
+        color:'#FFFFFF',
+        backgroundColor:'#9A6AFF',
+        paddingHorizontal:10,
+        paddingVertical:2,
+        borderRadius:12,
+        position:'relative',
+        textShadowColor: '#000', textShadowOffset: { width: 0.5, height: 0.5 }, textShadowRadius: 0.2,
+  },
 
-    },
+  heading: {
+    fontSize:25,
+    textAlign:'left',
+    fontWeight:'bold',
+    marginBottom:4,
+    color:'#FFF',
+    textShadowColor: '#000', textShadowOffset: { width: 0.5, height: 1 }, textShadowRadius: 0.01,
+  
+  },
 
-    title: {
-        fontSize:22,
-        paddingVertical:15,
-        fontFamily:'LatoR',
-        color:'#494949',
-        
-        opacity:0.9,
-       
-       
-    },
+
+  heading2: {
+    fontSize:18,
+    textAlign:'left',
+    fontWeight:'bold',
+    marginBottom:0,
+    maxWidth:230,
+    color:'#bdbdbd',
+   
+  },
 
     info: {
         flexDirection:'column',
@@ -101,14 +131,12 @@ const styles= StyleSheet.create({
         justifyContent:'center',
         position:'relative',
         textAlign:'justify',
-        lineHeight:20,
+        lineHeight:24,
         fontSize:16,
         fontFamily:'LatoR',
-        color:'#bdbdbd',
-        maxHeight:200,
+        color:'grey',
         zIndex:99,
-        paddingHorizontal:10, 
-        textShadowColor: '#e0e0e0', textShadowOffset: { width: 0.1, height: 1.2 }, textShadowRadius: 1,
+    
       
     },
 
