@@ -27,7 +27,7 @@ export default function CatSlider({data})  {
   
       imageStyle={styles.ItemImage} style={[
         styles.Item,
-        { borderRadius:10,marginLeft: data.id === '1' ? 7 : 0},
+        { borderRadius:10,marginLeft: data.id === '1' ? 6: 0},
      ]}>
 
           <Text style={{fontFamily: 'RobotoM',fontSize:16,opacity:1,textAlign:'center',color:'white'}}>{data.title}</Text> 
@@ -47,9 +47,9 @@ export default function CatSlider({data})  {
       alignItems:'center',
       marginRight:20,
       textAlign:'center',
-      borderColor:'#9A6AFF',
+      borderColor:'#6F50DC',
       borderWidth:0.3,
-      backgroundColor:'#9A6AFF'
+      backgroundColor:'#6F50DC'
     },
 
     ItemImage: {

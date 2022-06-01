@@ -67,7 +67,7 @@ export default function AiringList({navigation,data}) {
           <Text
             numberOfLines={1}
             style={{
-              color: '#9A6AFF',
+              color: '#6F50DC',
               fontFamily: 'RobotoM',
               fontSize: 14,
            
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
 
 overlay: {
   ...StyleSheet.absoluteFillObject,
-  backgroundColor: 'rgba(38,62,62,0.40)',
+  backgroundColor: '(154,106,255,0.14)',
 },
 
 

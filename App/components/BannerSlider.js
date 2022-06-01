@@ -42,7 +42,7 @@ export default function BannerSlider({data}) {
           <Text style={[styles.ItemTitle,{overflow:'hidden'}]}>{data.maintitle}</Text>
           
           <View style={styles.ItemTypeWrapper}>
-            <Icon name="video" size={18} color={'#9A6AFF'} />
+            <Icon name="video" size={18} color={'#6F50DC'} />
             <Text style={styles.ItemType}>{data.studio}</Text>
           </View>
           
@@ -53,8 +53,8 @@ export default function BannerSlider({data}) {
 }
 const styles = StyleSheet.create({
 Item: {
-  width: 190,
-  height: 250,
+  width: 180,
+  height: 260,
   justifyContent: 'flex-end',
   paddingHorizontal: 10,
   paddingVertical: 5,
@@ -62,7 +62,7 @@ Item: {
   backgroundColor:'#ECF6FF',
   opacity:0.9,
   borderRadius: 10,
-  shadowColor: "#9A6AFF",
+  shadowColor: "#6F50DC",
   shadowOffset: {
     width: 0,
     height: 6,
@@ -108,7 +108,7 @@ ItemType: {
 
 overlay: {
   ...StyleSheet.absoluteFillObject,
-  backgroundColor: 'rgba(38,62,62,0.40)',
+  backgroundColor: 'rgba(154,106,255,0.14)',
 },
 
 

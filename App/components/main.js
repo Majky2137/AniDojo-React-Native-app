@@ -5,6 +5,7 @@ import {LikeButton, RatingButton} from './Buttons.js';
 import Video from './Video.js';
 import Tabs from './Tabs.js';
 import FrSliderData from '../model/data'
+import Rating from './rating.js';
 
 
 
@@ -37,6 +38,7 @@ const Main = (items) => {
             </View>  
         </View>
         <Tabs/>
+
         </View>    
     )
 };
@@ -96,7 +98,7 @@ const styles= StyleSheet.create({
         fontWeight:'bold',
         marginBottom:13,
         color:'#FFFFFF',
-        backgroundColor:'#9A6AFF',
+        backgroundColor:'#6F50DC',
         paddingHorizontal:10,
         paddingVertical:2,
         borderRadius:12,

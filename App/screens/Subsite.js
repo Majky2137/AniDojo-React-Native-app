@@ -7,19 +7,19 @@ import Video from '../components/Video';
 
 
 
-
 export default function Subsite({ navigation,route })  {
   const {item} = route.params;
   return (
-    <SafeAreaView style={styles.wrapper}>
-    <ScrollView style={styles.cont}>
+    <View style={styles.wrapper}>
+    <ScrollView style={styles.cont} >
         <View >
-          <ImageBackground source={item.mainimage} resizeMode="cover" imageStyle={{borderBottomLeftRadius:65,borderBottomRightRadius:65}} style={styles.image}>
-          <View style={styles.overlay} />
-          <TouchableOpacity style={{top:30, left:15, padding:15,position:'absolute',opacity:0.5,}} onPress={() => navigation.goBack('HomeScreen')}>
-                  <Icon style={{ fontSize: 20,color:'white', backgroundColor:'grey',borderRadius:30,padding:10,}} name={"chevron-thin-left"} />
+          <ImageBackground source={item.mainimage} resizeMode="cover" imageStyle={{borderBottomLeftRadius:45,borderBottomRightRadius:45}} style={styles.image}>
+            <View style={styles.overlay} />
+              <TouchableOpacity style={{top:30, left:15, padding:15,position:'absolute',opacity:0.5,}} onPress={() => navigation.goBack('HomeScreen')}>
+                  <Icon style={{ fontSize: 20,color:'white', backgroundColor:'grey',borderRadius:10,padding:10,}} name={"chevron-thin-left"} />
               </TouchableOpacity>
           </ImageBackground>
+
           <Main 
           status={item.status}
           title={item.title} 
@@ -29,7 +29,7 @@ export default function Subsite({ navigation,route })  {
           </Main>  
         </View> 
   </ScrollView>
-  </SafeAreaView>    
+  </View>    
   );
   
 }
@@ -47,14 +47,12 @@ const styles = StyleSheet.create({
 
     
   },
+
   wrapper: {
     flex: 1,
     height:'auto',
     zIndex:-1,
     backgroundColor:'#1E2029',
-
-
-    
   },
 
   image: {
@@ -69,9 +67,9 @@ const styles = StyleSheet.create({
 
 overlay: {
   ...StyleSheet.absoluteFillObject,
-  backgroundColor: 'rgba(38,62,62,0.30)',
-  borderBottomLeftRadius:65,
-  borderBottomRightRadius:65
+  backgroundColor: 'rgba(154,106,255,0.14)',
+  borderBottomLeftRadius:45,
+  borderBottomRightRadius:45
 }
 
 });
