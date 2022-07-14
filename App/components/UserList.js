@@ -64,7 +64,7 @@ ListItem: {
         backgroundColor:'#ECF6FF',
         opacity:0.9,
         borderRadius: 10,
-        shadowColor: "#6F50DC",
+        shadowColor: "#02b97f",
         shadowOffset: {
           width: 0,
           height: 6,
@@ -82,7 +82,7 @@ ItemImage: {
   
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(30,32,41,0.36)',
+    backgroundColor: 'rgba(24, 24, 24, 0.43)',
   },
 
 

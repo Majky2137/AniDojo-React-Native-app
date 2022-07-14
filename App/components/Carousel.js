@@ -36,7 +36,13 @@ export default function CarouselSlider({data}) {
         style={
           styles.Item
         }>
-        <View style={[styles.overlay,{borderRadius:10,}]} />
+               <View style={[styles.overlay,{borderRadius:10,}]} />
+          <View style={styles.image_details_view}>
+            <Text style={{fontFamily: 'RobotoM', color:"#02b97f", maxWidth:'40%', fontSize:18, }}>{data.status} </Text>
+            <Text style={{fontFamily: 'RobotoM', color:'white', maxWidth:'40%',fontSize:15,marginBottom:2, }}>{data.studio}  <Icon style={{ marginLeft:8 }} name="video" size={18} color={data.color} /></Text>
+            <Text style={{fontFamily: 'RobotoM', color:'#ECF6FF', maxWidth:'100%', fontSize:19,marginBottom:8, }}>{data.title}</Text>
+            </View>
+   
         </ImageBackground>
         
     </View>
@@ -48,12 +54,12 @@ const styles = StyleSheet.create({
     width: 353,
     height: 210,
     resizeMode:'cover',
-    alignItems:'center',
+    alignItems:'flex-end',
     flexDirection:'row',
     justifyContent:'center',
     backgroundColor:'#ECF6FF',
     borderRadius: 10,
-    shadowColor: "#6F50DC",
+    shadowColor: "#02b97f",
     shadowOffset: {
       width: 0,
       height: 6,
@@ -67,9 +73,19 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width:'100%'
   },
+  image_details_view: {
+    padding:12,
+    position:'relative',
+    display:'flex',
+    width:'100%',
+    bottom:0,
+    left:0,
+    flexDirection:'column',
+    fontFamily: 'RobotoM'
+  },
 
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(154,106,255,0.14)',
+    backgroundColor: 'rgba(24, 24, 24, 0.43)',
   },
 })

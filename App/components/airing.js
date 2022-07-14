@@ -67,7 +67,7 @@ export default function AiringList({navigation,data}) {
           <Text
             numberOfLines={1}
             style={{
-              color: '#6F50DC',
+              color: '#02b97f',
               fontFamily: 'RobotoM',
               fontSize: 14,
            

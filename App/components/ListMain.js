@@ -82,7 +82,7 @@ ItemImage: {
   
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(30,32,41,0.36)',
+    backgroundColor: 'rgba(24, 24, 24, 0.43)',
   },
 
 

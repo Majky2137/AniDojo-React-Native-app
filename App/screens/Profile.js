@@ -50,7 +50,7 @@ export default function Profile ({navigation}) {
               <ImageBackground 
               source={require('../assets/images/user-prof-pic2.jpg')} 
               style={styles.user_image}  
-              imageStyle={{borderRadius:50, borderColor:'#6F50DC',borderWidth:2,}}
+              imageStyle={{borderRadius:50, borderColor:'#02b97f',borderWidth:2,}}
               />
           </View>
 
@@ -80,7 +80,7 @@ export default function Profile ({navigation}) {
         </ImageBackground>
           </View>
           <View style={styles.search_container}>
-            <Icon style={{marginRight:5,top:3,fontFamily:'LatoR'}} name="search-outline" size={20} color='#6F50DC'  />
+            <Icon style={{marginRight:5,top:3,fontFamily:'LatoR'}} name="search-outline" size={20} color='#02b97f'  />
             <TextInput placeholderTextColor={'#E3E3E3' }placeholder='Search' style={{width:'100%',color:'#263E3E',fontFamily:'LatoR'}}/>
           </View>
 
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
  
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(30,32,41,0.46)',
+    backgroundColor: 'rgba(24, 24, 24, 0.43)',
     borderBottomLeftRadius:45,
     borderBottomRightRadius:45
 },
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
 search_container:{
   flexDirection:'row',
   justifyContent:'space-between',
-  borderColor:'#6F50DC',
+  borderColor:'#02b97f',
   borderWidth:0.3,
   borderRadius:10,
   paddingHorizontal:10,

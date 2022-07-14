@@ -2,7 +2,7 @@ import Main from '../components/main';
 import { ScrollView, StyleSheet, Text, Button ,Alert, View, Image,SafeAreaView, ImageBackground,TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import { LikeButton } from '../components/Buttons';
-import Video from '../components/Video';
+
 
 
 
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 
 overlay: {
   ...StyleSheet.absoluteFillObject,
-  backgroundColor: 'rgba(154,106,255,0.14)',
+  backgroundColor: 'rgba(24, 24, 24, 0.30)',
   borderBottomLeftRadius:45,
   borderBottomRightRadius:45
 }

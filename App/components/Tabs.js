@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet, Dimensions, StatusBar,SectionList,Animated, TouchableOpacity } from 'react-native';
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { View, StyleSheet, Dimensions, StatusBar,SectionList,Animated, TouchableOpacity,Text } from 'react-native';
 import{ useState, useCallback, useRef,  } from 'react';
 import YoutubePlayer from "react-native-youtube-iframe";
 import Video from './Video.js';
@@ -8,106 +7,87 @@ import Video from './Video.js';
 import Constants from 'expo-constants';
 
 
-const FirstRoute = () => (
-  
-  <Video style={[styles.scene, { backgroundColor: '#673ab7' }]} episode= "Trailer"/> 
-);
+const Tabs = () => {
+  const [toggleState, setToggle] = useState(1);
 
-const SecondRoute = () => (
-  <View style={[styles.scene, { backgroundColor: '#673ab7' }]} />
-);
-const ThirdRoute = () => (
-  <View style={[styles.scene, { backgroundColor: '#ff4081' }]} />
-);
-
-const initialLayout = { width: Dimensions.get('window').width };
-
-export default class Tabs extends React.Component {
-  state = {
-    index: 0,
-    routes: [
-      { key: 'first', title: 'Trailer' },
-      { key: 'second', title: 'Relations'},
-      {key: 'third', title: 'Characters' },
-    ],
+  const initTab = (index) => {
+    setToggle(index);
   };
 
-  _handleIndexChange = (index) => this.setState({ index });
-
-  _renderTabBar = (props) => {
-    const inputRange = props.navigationState.routes.map((x, i) => i);
-
-    return (
-      <View style={styles.tabBar}>
-        {props.navigationState.routes.map((route, i) => {
-          const opacity = props.position.interpolate({
-            inputRange,
-            outputRange: inputRange.map((inputIndex) =>
-              inputIndex === i ? 1 : 0.5
-            ),
-          });
-
-          return (
-            <TouchableOpacity
-              style={styles.tabItem}
-              onPress={() => this.setState({ index: i })}>
-              <Animated.Text style={{ opacity, color:'white' }}>{route.title}</Animated.Text>
-            </TouchableOpacity>
-          );
-        })}
+  return (
+    <View style={styles.item_tabs_container}>
+      <View style={styles.item_tabs}>
+        <TouchableOpacity >
+          <Text style={toggleState === 1 ? [styles.item_tabs, styles.item_tabs_text_active] : styles.item_tabs} onPress={() => initTab(1)}>Episodes</Text>
+        </TouchableOpacity>
+        <TouchableOpacity >
+        <Text style={toggleState === 2 ? [styles.item_tabs, styles.item_tabs_text_active] : styles.item_tabs} onPress={() => initTab(2)}>Characters</Text>
+        </TouchableOpacity>
+        <TouchableOpacity >
+         <Text style={toggleState === 3 ? [styles.item_tabs, styles.item_tabs_text_active] : styles.item_tabs} onPress={() => initTab(3)}>Related</Text>
+        </TouchableOpacity>
       </View>
-    );
-  };
+      <View style={styles.item_tab_results}>
+        <View
+          style={toggleState === 1 ? styles.items & styles.active_item : styles.items}>
+<Video style={[styles.scene, { backgroundColor: '#02b97f' }]} episode= "Trailer"/> 
+        </View>
 
-  _renderScene = SceneMap({
-    first: FirstRoute,
-    second: SecondRoute,
-    third: ThirdRoute,
-  });
+        <View
+          style={toggleState === 2 ? styles.items & styles.active_item : styles.items}
+        >
 
-  render() {
-    return (
-      <TabView
-        navigationState={this.state}
-        renderScene={this._renderScene}
-        renderTabBar={this._renderTabBar}
-        onIndexChange={this._handleIndexChange}
-        initialLayout={initialLayout}
-        style={styles.container}
-      />
-    );
-  }
+        </View>
+
+        <View
+          style={toggleState === 3 ? styles.items & styles.active_item : styles.items}
+        >
+
+        </View>
+      </View>
+
+    </View>
+  );
 }
 
+export default Tabs;
 
 const styles = StyleSheet.create({
-  container: {
-    minHeight:260,
-    maxHeight:260,
-    justifyContent:'center',
-    borderRadius:10,
-    overflow: 'hidden',
-    position:'relative',
-    marginBottom:30,
-    
-  },
-  tabBar: {
-    flexDirection: 'row',
-   
 
-    
-  },
-  tabItem: {
-    flex: 1,
+  item_tab_results: {
+    display:'flex',
+    marginTop:2,
+    height:'100%',
+},
+
+item_tabs_container: {
+    height:'100%',
+    marginTop:20,
+    minHeight:300,
+},
+item_tabs: {
+    display: 'flex',
+    flexDirection:'row',
+    height:60,
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
-    
-  },
- 
-  
-  scene: {
-    flex: 1,
-    
-    
-  },
+    fontSize: 17,
+    padding: 12,
+    color:'#E3E3E3'
+},
+items: {
+  display:'none',
+  flexDirection: 'column',
+  borderRadius: 15,
+  backgroundColor: '#1a1a1a31',
+  width: '100%',
+  maxHeight: 60,
+  overflow: 'scroll',
+},
+active_item: {
+  display: 'block'
+},
+item_tabs_text_active: {
+  color:'#02b97f',
+}
 });

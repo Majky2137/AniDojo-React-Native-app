@@ -37,8 +37,9 @@ const Main = (items) => {
                     </ScrollView>   
             </View>  
         </View>
+        <View style={styles.item_page_container}>
         <Tabs/>
-
+        </View>
         </View>    
     )
 };
@@ -90,7 +91,13 @@ const styles= StyleSheet.create({
 
     },
 
-    
+    item_page_container: {
+        margin: 0,
+        minWidth: 320,
+        width: '100%',
+        minHeight: 90,
+        position: 'relative',
+    },
     
     upheading: {
         marginTop:20,
@@ -98,7 +105,7 @@ const styles= StyleSheet.create({
         fontWeight:'bold',
         marginBottom:13,
         color:'#FFFFFF',
-        backgroundColor:'#6F50DC',
+        backgroundColor:'#02b97f',
         paddingHorizontal:10,
         paddingVertical:2,
         borderRadius:12,

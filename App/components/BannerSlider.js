@@ -42,7 +42,7 @@ export default function BannerSlider({data}) {
           <Text style={[styles.ItemTitle,{overflow:'hidden'}]}>{data.maintitle}</Text>
           
           <View style={styles.ItemTypeWrapper}>
-            <Icon name="video" size={18} color={'#6F50DC'} />
+            <Icon name="video" size={18} color={data.color} />
             <Text style={styles.ItemType}>{data.studio}</Text>
           </View>
           
@@ -62,7 +62,7 @@ Item: {
   backgroundColor:'#ECF6FF',
   opacity:0.9,
   borderRadius: 10,
-  shadowColor: "#6F50DC",
+  shadowColor: "#02b97f",
   shadowOffset: {
     width: 0,
     height: 6,
@@ -108,7 +108,7 @@ ItemType: {
 
 overlay: {
   ...StyleSheet.absoluteFillObject,
-  backgroundColor: 'rgba(154,106,255,0.14)',
+  backgroundColor: 'rgba(24, 24, 24, 0.43)',
 },
 
 

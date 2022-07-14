@@ -19,7 +19,7 @@ const TabNavigator = (navigation,route) => {
   return (
         <Tab.Navigator 
           screenOptions={{
-            tabBarActiveTintColor: '#6F50DC',
+            tabBarActiveTintColor: '#02b97f',
             tabBarInactiveTintColor: '#E3E3E3',
             tabBarShowLabel: false,
             tabBarIcon: true,

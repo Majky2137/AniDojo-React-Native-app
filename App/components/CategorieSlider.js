@@ -47,9 +47,9 @@ export default function CatSlider({data})  {
       alignItems:'center',
       marginRight:20,
       textAlign:'center',
-      borderColor:'#6F50DC',
+      borderColor:'#02b97f',
       borderWidth:0.3,
-      backgroundColor:'#6F50DC'
+      backgroundColor:'#02b97f'
     },
 
     ItemImage: {

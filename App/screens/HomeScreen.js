@@ -67,12 +67,12 @@ export default function HomeScreen({ navigation}) {
               <ImageBackground 
               source={require('../assets/images/user-prof-pic2.jpg')} 
               style={styles.image}  
-              imageStyle={{borderRadius:50,borderColor:'#6F50DC',borderWidth:1,}}
+              imageStyle={{borderRadius:50,borderColor:'#02b97f',borderWidth:1,}}
               />
               </TouchableOpacity>
              
               <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
-              <Icon style={{ fontSize: 30,color:'#6F50DC',paddingTop:10,}} name={"notifications-outline"} />
+              <Icon style={{ fontSize: 30,color:'#02b97f',paddingTop:10,}} name={"notifications-outline"} />
               </TouchableOpacity>
           </View>
 
@@ -108,7 +108,7 @@ export default function HomeScreen({ navigation}) {
             }}>
             <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#E3E3E3' }}>Genres </Text>
             <TouchableOpacity >
-              <Text style={{color:'#6F50DC',fontFamily:'RobotoM'}}>See all</Text>
+              <Text style={{color:'#02b97f',fontFamily:'RobotoM'}}>See all</Text>
             </TouchableOpacity>
           </View>
 
@@ -132,7 +132,7 @@ export default function HomeScreen({ navigation}) {
             }}>
             <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#E3E3E3' }}>Trending Now </Text>
             <TouchableOpacity >
-              <Text style={{color:'#6F50DC',fontFamily:'RobotoM'}}>See all</Text>
+              <Text style={{color:'#02b97f',fontFamily:'RobotoM'}}>See all</Text>
             </TouchableOpacity>
           </View>
           
@@ -157,7 +157,7 @@ export default function HomeScreen({ navigation}) {
             }}>
             <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#E3E3E3' }}>Now Airing </Text>
             <TouchableOpacity >
-              <Text style={{color:'#6F50DC',fontFamily:'RobotoM'}}>See all</Text>
+              <Text style={{color:'#02b97f',fontFamily:'RobotoM'}}>See all</Text>
             </TouchableOpacity>
           </View>
          
@@ -193,7 +193,7 @@ user_cont: {
 search_container:{
     flexDirection:'row',
     justifyContent:'space-between',
-    borderColor:'#6F50DC',
+    borderColor:'#02b97f',
     borderWidth:0.3,
     borderRadius:10,
     paddingHorizontal:10,
@@ -230,7 +230,7 @@ search_container:{
 
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(154,106,255,0.14)',
+    backgroundColor: 'rgba(24, 24, 24, 0.43)',
   
 },
 });
