@@ -64,7 +64,7 @@ ListItem: {
         backgroundColor:'#ECF6FF',
         opacity:0.9,
         borderRadius: 10,
-        shadowColor: "#6F50DC",
+        shadowColor: "#BE4242",
         shadowOffset: {
           width: 0,
           height: 6,

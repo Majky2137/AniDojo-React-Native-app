@@ -52,7 +52,7 @@ const styles= StyleSheet.create({
     main: {
       
         flexDirection:'column',
-        backgroundColor:'#1E2029',
+        backgroundColor:'#1E1E1E',
         height:'100%',
         position:'relative',
         width:'100%',
@@ -104,8 +104,8 @@ const styles= StyleSheet.create({
         fontSize:16,
         fontWeight:'bold',
         marginBottom:13,
-        color:'#FFFFFF',
-        backgroundColor:'#02b97f',
+        color:'#D9D9D9',
+        backgroundColor:'#BE4242',
         paddingHorizontal:10,
         paddingVertical:2,
         borderRadius:12,
@@ -114,20 +114,20 @@ const styles= StyleSheet.create({
   },
 
   heading: {
-    fontSize:25,
+    fontSize:22,
     textAlign:'left',
-    fontWeight:'bold',
+     fontFamily:'InterB',
     marginBottom:4,
-    color:'#FFF',
+    color:'#D9D9D9',
     textShadowColor: '#000', textShadowOffset: { width: 0.5, height: 1 }, textShadowRadius: 0.01,
   
   },
 
 
   heading2: {
-    fontSize:18,
+    fontSize:16.5,
     textAlign:'left',
-    fontWeight:'bold',
+    fontFamily:'InterB',
     marginBottom:0,
     maxWidth:230,
     color:'#bdbdbd',
@@ -142,7 +142,7 @@ const styles= StyleSheet.create({
         textAlign:'justify',
         lineHeight:24,
         fontSize:16,
-        fontFamily:'LatoR',
+       fontFamily:'InterR',
         color:'grey',
         zIndex:99,
     

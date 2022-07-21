@@ -50,7 +50,7 @@ export default function List ({navigation}) {
   
           <View style={styles.search_container}>
             <Icon style={{marginRight:5,top:3,fontFamily:'LatoR'}} name="search-outline" size={20} color='#02b97f'  />
-            <TextInput placeholderTextColor={'#E3E3E3' }placeholder='Search' style={{width:'100%',color:'#263E3E',fontFamily:'LatoR'}}/>
+            <TextInput placeholderTextColor={'#D9D9D9' }placeholder='Search' style={{width:'100%',color:'#263E3E',fontFamily:'LatoR'}}/>
           </View>
 
         

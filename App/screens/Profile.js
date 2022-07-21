@@ -50,7 +50,7 @@ export default function Profile ({navigation}) {
               <ImageBackground 
               source={require('../assets/images/user-prof-pic2.jpg')} 
               style={styles.user_image}  
-              imageStyle={{borderRadius:50, borderColor:'#02b97f',borderWidth:2,}}
+              imageStyle={{borderRadius:50, borderColor:'#BE4242',borderWidth:2,}}
               />
           </View>
 
@@ -80,8 +80,8 @@ export default function Profile ({navigation}) {
         </ImageBackground>
           </View>
           <View style={styles.search_container}>
-            <Icon style={{marginRight:5,top:3,fontFamily:'LatoR'}} name="search-outline" size={20} color='#02b97f'  />
-            <TextInput placeholderTextColor={'#E3E3E3' }placeholder='Search' style={{width:'100%',color:'#263E3E',fontFamily:'LatoR'}}/>
+            <Icon style={{marginRight:5,top:3,fontFamily:'LatoR'}} name="search-outline" size={20} color='#BE4242'  />
+            <TextInput placeholderTextColor={'#D9D9D9' }placeholder='Search' style={{width:'100%',color:'#263E3E',fontFamily:'LatoR'}}/>
           </View>
 
           <View style={{
@@ -90,7 +90,7 @@ export default function Profile ({navigation}) {
             justifyContent:'space-between',
             paddingHorizontal:20,
             }}>
-            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#E3E3E3' }}>List of yours </Text>
+            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#D9D9D9' }}>List of yours </Text>
           
           </View>
 
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height:'auto',
     zIndex:-1,
-    backgroundColor:'#1E2029',
+    backgroundColor:'#1E1E1E',
   },
 
   container: {
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
 search_container:{
   flexDirection:'row',
   justifyContent:'space-between',
-  borderColor:'#02b97f',
+  borderColor:'#BE4242',
   borderWidth:0.3,
   borderRadius:10,
   paddingHorizontal:10,

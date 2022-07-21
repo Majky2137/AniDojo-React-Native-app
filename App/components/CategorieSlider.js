@@ -3,7 +3,7 @@ import {View, Text, Image, TouchableOpacity,ImageBackground,StyleSheet} from 're
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
-
+import { useState } from 'react';
 
 export default function CatSlider({data})  {
   const [loaded] = useFonts({
@@ -20,20 +20,15 @@ export default function CatSlider({data})  {
     return null;
   }
 
-    return (
-      <View >
-        
-      <View
-  
-      imageStyle={styles.ItemImage} style={[
-        styles.Item,
-        { borderRadius:10,marginLeft: data.id === '1' ? 6: 0},
-     ]}>
 
-          <Text style={{fontFamily: 'RobotoM',fontSize:16,opacity:1,textAlign:'center',color:'white'}}>{data.title}</Text> 
-         
+
+    return (
+      <View style={{marginVertical:12,}}>
+        <TouchableOpacity >
+      <View style={[ styles.Item, { borderRadius:4,marginLeft: data.id === '1' ? 6: 0, backgroundColor: data.id === '1' ? '#BE4242' : 'transparent' }]}>
+          <Text style={{fontFamily: 'InterR',fontSize:16,opacity:1,textAlign:'center',color:'#D9D9D9'}}>{data.title}</Text> 
       </View>
-      
+      </TouchableOpacity>
       </View>
     )
   }
@@ -47,9 +42,10 @@ export default function CatSlider({data})  {
       alignItems:'center',
       marginRight:20,
       textAlign:'center',
-      borderColor:'#02b97f',
+      borderColor:'#BE4242',
       borderWidth:0.3,
-      backgroundColor:'#02b97f'
+      backgroundColor:'transparent',
+      
     },
 
     ItemImage: {

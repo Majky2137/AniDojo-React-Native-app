@@ -24,7 +24,7 @@ const LikeButton = () => {
         return (
           
             <TouchableOpacity onPress={() => setFollowed((isFollowed) => !isFollowed)}>
-              <View style={styles.button} backgroundColor={followed ? "grey" : "#02b97f"}>
+              <View style={styles.button} backgroundColor={followed ? "grey" : "#BE4242"}>
                   <Text style={styles.but_title}>{followed ? "UnFollow" : "Follow"}</Text>
                   </View>
          </TouchableOpacity>
@@ -50,14 +50,16 @@ const LikeButton = () => {
       paddingHorizontal: 32,
       margin:10,
       borderRadius: 4,
+      fontFamily:'InterB',
+      letterSpacing: 0.5,
       backgroundColor: 'rgba(24, 24, 24, 0.43)',
     },
     but_title: {
       fontSize: 16,
       lineHeight: 21,
-      fontWeight: 'bold',
-      letterSpacing: 0.25,
-      color: 'white',
+      fontFamily:'InterB',
+      letterSpacing: 0.5,
+      color: '#D9D9D9',
     },
 });
 

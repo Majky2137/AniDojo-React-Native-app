@@ -5,10 +5,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useFonts } from 'expo-font';
 import {FrSliderData} from '../model/data';
 import { SecondSliderData } from '../model/data';
-import BannerSlider from '../components/BannerSlider';
+import HeroSlider from '../components/HeroSlider';
 import CatSlider from '../components/CategorieSlider';
 import AiringList from '../components/airing';
-import CarouselSlider from '../components/Carousel';
+import PopularSlider from '../components/PopularSlider';
 
 
 
@@ -19,25 +19,9 @@ export default function HomeScreen({ navigation}) {
 
   const [AnimeAirTab, setAnimeAirTab] = useState(1);
 
-  const _renderBanner = ({item,index}) => {
-    
-    return (
-      <TouchableOpacity onPress={()=>navigation.navigate('Subsite', {item:item})}>
-    <BannerSlider  data={item} />
-    </TouchableOpacity>
-    
-    ) 
-  };
+  
 
-  const _renderCarousel = ({item,index}) => {
-    
-    return (
-      <TouchableOpacity onPress={()=>navigation.navigate('Subsite', {item:item})}>
-    <CarouselSlider  data={item} />
-    </TouchableOpacity>
-    
-    ) 
-  };
+
 
   const _renderCategorie = ({item,index}) => {
    
@@ -46,11 +30,13 @@ export default function HomeScreen({ navigation}) {
 
 
   const [loaded] = useFonts({
-    RobotoM: require('../assets/fonts/Roboto-Medium.ttf'),
+    InterR: require('../assets/fonts/Roboto-Medium.ttf'),
     RobotoB: require('../assets/fonts/Roboto-Bold.ttf'),
     LatoR: require('../assets/fonts/Lato-Regular.ttf'),
     LatoB: require('../assets/fonts/Lato-Bold.ttf'),
     LatoBL: require('../assets/fonts/Lato-Black.ttf'),
+    InterR: require('../assets/fonts/Inter-Regular.ttf'),
+    InterB: require('../assets/fonts/Inter-SemiBold.ttf'),
     
 
   });
@@ -60,55 +46,50 @@ export default function HomeScreen({ navigation}) {
   }
 
     return (
-    <SafeAreaView style={{flex:1, backgroundColor: '#1E2029',}}>
-        <ScrollView contentContainerStyle={{flexGrow: 1}} style={{padding:20, }}>
+    <SafeAreaView style={{flex:1, backgroundColor: '#1E1E1E',}}>
+        <ScrollView contentContainerStyle={{flexGrow: 1}} style={{paddingHorizontal:20,marginTop:25 }}>
           <View style={styles.user_cont}>
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>
+              <Icon style={{ fontSize: 40,color:'#D9D9D9',}} name={"menu-outline"} />
+              </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
               <ImageBackground 
               source={require('../assets/images/user-prof-pic2.jpg')} 
               style={styles.image}  
-              imageStyle={{borderRadius:50,borderColor:'#02b97f',borderWidth:1,}}
+              imageStyle={{borderRadius:50,borderColor:'#BE4242',borderWidth:1,}}
               />
               </TouchableOpacity>
-             
-              <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
-              <Icon style={{ fontSize: 30,color:'#02b97f',paddingTop:10,}} name={"notifications-outline"} />
-              </TouchableOpacity>
           </View>
 
-          <View style={{
-            marginVertical:4,
-            flexDirection:'row',
-            justifyContent:'space-between',
-            }}>
-            <Text style={{fontFamily:'RobotoM',fontSize:24, color:'#E3E3E3' }}>Explore</Text>
-          
+          <View style={{flexDirection:'row',justifyContent:'space-between',}}>
+            <Text style={{fontFamily:'InterR',fontSize:25, color:'#D9D9D9' }}>Discover</Text>
           </View>
          
-          <View style={{flex:1,flexDirection:'row',justifyContent:'center'}}>
-          <Animated.FlatList
-              data={FrSliderData}
-              renderItem={_renderCarousel}
-              keyExtractor={(item) => item.id}
-              horizontal
-              onScroll={Animated.event(
-                [{nativeEvent: {contentOffset: {x: scrollX}}}],
-                {useNativeDriver: true}
-                
-                )}
-              pagingEnabled
-              showsHorizontalScrollIndicator={false}
+          <View style={styles.wrap}>
+          <ScrollView onScroll={({nativeEvent}) => onchange=(nativeEvent)}
+          showsHorizontalScrollIndicator={false}
+          pagingEnabled
+          horizontal
+          style={styles.wrap}
+        >
+         {FrSliderData.map(item => (
+            <TouchableOpacity onPress={()=>navigation.navigate('Subsite', {item:item})}>
+            <HeroSlider style={{}}
+            key={item.id}
+              data={item}
             />
-          </View>
+              </TouchableOpacity>
+          ))}
+       </ScrollView>
+         </View>
 
           <View style={{
-            marginVertical:14,
             flexDirection:'row',
             justifyContent:'space-between',
             }}>
-            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#E3E3E3' }}>Genres </Text>
+            <Text style={{fontFamily:'InterR',fontSize:20, color:'#D9D9D9' }}>Genres </Text>
             <TouchableOpacity >
-              <Text style={{color:'#02b97f',fontFamily:'RobotoM'}}>See all</Text>
+              <Text style={{color:'#BE4242',fontSize:16,fontFamily:'InterR'}}>See all</Text>
             </TouchableOpacity>
           </View>
 
@@ -126,53 +107,59 @@ export default function HomeScreen({ navigation}) {
         </View>
 
           <View style={{
-            marginVertical:14,
             flexDirection:'row',
             justifyContent:'space-between',
             }}>
-            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#E3E3E3' }}>Trending Now </Text>
+            <Text style={{fontFamily:'InterR',fontSize:20, color:'#D9D9D9' }}>Popular now</Text>
             <TouchableOpacity >
-              <Text style={{color:'#02b97f',fontFamily:'RobotoM'}}>See all</Text>
+              <Text style={{color:'#BE4242',fontSize:16,fontFamily:'InterR'}}>See all</Text>
             </TouchableOpacity>
           </View>
           
         <View style={styles.Wrapper}>
           <View style={styles.ItemsWrapper}>
-            <FlatList
-              data={FrSliderData}
-              renderItem={_renderBanner}
-              keyExtractor={(item) => item.id}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              loop={true}
-              autoscroll={true}
-            />
-          </View>
-        </View>
-
-        <View style={{
-            marginVertical:16,
-            flexDirection:'row',
-            justifyContent:'space-between',
-            }}>
-            <Text style={{fontFamily:'RobotoM',fontSize:18, color:'#E3E3E3' }}>Now Airing </Text>
-            <TouchableOpacity >
-              <Text style={{color:'#02b97f',fontFamily:'RobotoM'}}>See all</Text>
-            </TouchableOpacity>
-          </View>
-         
-          <View style={{marginBottom:105, maxHeight:400, minHeight:260}}>
-          <ScrollView nestedScrollEnabled={true}>
-         {AnimeAirTab == 1 &&
-          FrSliderData.map(item => (
+          <View style={styles.wrap}>
+          <ScrollView onScroll={({nativeEvent}) => onchange=(nativeEvent)}
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          style={styles.wrap}
+        >
+         {FrSliderData.map(item => (
             <TouchableOpacity onPress={()=>navigation.navigate('Subsite', {item:item})}>
-            <AiringList
+            <PopularSlider style={{}}
             key={item.id}
               data={item}
             />
               </TouchableOpacity>
           ))}
-           </ScrollView>
+       </ScrollView>
+         </View>
+          </View>
+        </View>
+
+        <View style={{
+            flexDirection:'row',
+            justifyContent:'space-between',
+            }}>
+            <Text style={{fontFamily:'InterR',fontSize:20, color:'#D9D9D9' }}>Now airing </Text>
+            <TouchableOpacity >
+              <Text style={{color:'#BE4242',fontSize:16,fontFamily:'InterR'}}>See all</Text>
+            </TouchableOpacity>
+          </View>
+         
+          <View style={{marginBottom:40,marginVertical:12,flex: 1, width:'100%', height:'100%'}}>
+          <View nestedScrollEnabled={true} style={{marginVertical:4,flexDirection: "row",
+    flexWrap: "wrap", width:'100%', alignItems:'center', justifyContent:'space-between'}}>
+         {AnimeAirTab == 1 &&
+          FrSliderData.map(item => (
+            <TouchableOpacity onPress={()=>navigation.navigate('Subsite', {item:item})}>
+            <AiringList style={{}}
+            key={item.id}
+              data={item}
+            />
+              </TouchableOpacity>
+          ))}
+           </View>
       </View>
      
         </ScrollView>
@@ -193,12 +180,12 @@ user_cont: {
 search_container:{
     flexDirection:'row',
     justifyContent:'space-between',
-    borderColor:'#02b97f',
+    borderColor:'#BE4242',
     borderWidth:0.3,
     borderRadius:10,
     paddingHorizontal:10,
     paddingVertical:10,
-    marginVertical:10,
+    marginVertical:12,
     width:'95%',
     alignSelf:'center',
  

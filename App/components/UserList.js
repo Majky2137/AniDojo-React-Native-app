@@ -61,10 +61,10 @@ ListItem: {
         width: 105,
         height: 150,
         margin:10,
-        backgroundColor:'#ECF6FF',
+        backgroundColor:'#D9D9D9',
         opacity:0.9,
         borderRadius: 10,
-        shadowColor: "#02b97f",
+        shadowColor: "#BE4242",
         shadowOffset: {
           width: 0,
           height: 6,

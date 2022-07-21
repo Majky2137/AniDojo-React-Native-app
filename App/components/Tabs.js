@@ -30,7 +30,7 @@ const Tabs = () => {
       <View style={styles.item_tab_results}>
         <View
           style={toggleState === 1 ? styles.items & styles.active_item : styles.items}>
-<Video style={[styles.scene, { backgroundColor: '#02b97f' }]} episode= "Trailer"/> 
+<Video style={[styles.scene, { backgroundColor: '#BE4242' }]} episode= "Trailer"/> 
         </View>
 
         <View
@@ -73,7 +73,7 @@ item_tabs: {
     alignItems: 'center',
     fontSize: 17,
     padding: 12,
-    color:'#E3E3E3'
+    color:'#D9D9D9'
 },
 items: {
   display:'none',
@@ -88,6 +88,6 @@ active_item: {
   display: 'block'
 },
 item_tabs_text_active: {
-  color:'#02b97f',
+  color:'#BE4242',
 }
 });

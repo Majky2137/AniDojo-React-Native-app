@@ -29,6 +29,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Application based on Website with anime series [WIP]"
+    "description": "Application based on Website with anime series [WIP]",
+    "githubUrl": "https://github.com/Majky2137/React-Native-Mobile-App"
   }
 }
